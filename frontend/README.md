@@ -42,7 +42,7 @@ La carpeta `dist` del frontend contiene el sitio generado. El backend ejecuta Ty
 - Registro, login, logout y dashboard protegido por sesión.
 - Perfil y saldo recibidos desde el backend y conservados en LocalStorage.
 - Donut de apuestas ganadas/perdidas y barras de victorias de seis caracoles.
-- Una simulación de 50 carreras por arranque del backend; el resumen muestra las últimas seis.
+- Un día simulado de seis carreras por arranque del backend; el resumen muestra las seis carreras.
 - Nombre del líder y cantidad de victorias, sin porcentajes en la gráfica de caracoles.
 - SnailPay con ejemplos de aprobación, rechazo y error interno.
 - Loader durante al menos tres segundos. Bloquea nuevas operaciones y limpia todos los campos al terminar, conservando el resultado.
@@ -65,3 +65,4 @@ Si cambias el puerto del backend, ajusta el destino del proxy en `vite.config.ts
 ## Persistencia
 
 Perfil, sesión, saldo y respuestas ficticias de pago se guardan en LocalStorage. El token se valida contra Express al abrir el dashboard. Reiniciar el backend borra su caché y requiere registrar nuevamente la cuenta. La operación pendiente se conserva sólo mientras el componente está montado: confirma su resultado antes de recargar la página o salir del dashboard.
+

@@ -51,7 +51,7 @@ Cada respuesta de pago contiene `id`, `status` (approved/rejected/error), `statu
 - `POST /api/auth/login`: verifica contraseña y entrega un token aleatorio válido por 24 horas.
 - `GET /api/auth/me`: verifica token y devuelve perfil/saldo actuales.
 - `POST /api/auth/logout`: invalida el token.
-- `GET /api/dashboard`: seis caracoles y 50 carreras aleatorias generadas una sola vez al arrancar Express. Cada carrera tiene una apuesta ficticia; ganadas y perdidas se calculan comparando la selección con el ganador. Las victorias suman 50. El frontend muestra el número de victorias del líder (incluyendo empates) y las últimas seis carreras. Consultar el API no cambia la simulación; reiniciar el backend genera otra.
+- `GET /api/dashboard`: seis caracoles y seis carreras aleatorias de un día simulado generadas una sola vez al arrancar Express. Cada carrera tiene una apuesta ficticia; ganadas y perdidas se calculan comparando la selección con el ganador. Las victorias suman seis. El frontend muestra el número de victorias del líder (incluyendo empates) y las últimas seis carreras. Consultar el API no cambia la simulación; reiniciar el backend genera otra.
 - `POST /api/snailpay/charges`: recibe card_number, expiration_date, cvv, full_name, transaction_amount, payer_id y payer_email; exige `Idempotency-Key`.
 - `GET /api/health`: comprueba disponibilidad.
 
@@ -82,3 +82,4 @@ Copia .env.example como .env. Los comandos npm start y npm run dev cargan .env a
 [database/schema.sql](database/schema.sql) contiene una propuesta PostgreSQL para usuarios, sesiones, caracoles, carreras reales, participantes con sus puestos finales, apuestas y pagos. Incluye el catálogo inicial de seis caracoles. Esta propuesta no está conectada a Express: la aplicación sigue usando memoria.
 
 El SQL está pensado para ejecutarse una sola vez en una base vacía, con PostgreSQL 13 o posterior. No se ha ejecutado contra una instancia PostgreSQL en este workspace. Las validaciones entre registros (cierre de carreras, puestos completos, apuestas antes del inicio) y las actualizaciones transaccionales del saldo requieren implementación en el backend. El diseño de puestos supone que no existen empates.
+

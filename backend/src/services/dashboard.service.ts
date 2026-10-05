@@ -8,7 +8,8 @@ const snails = [
   { id: 'turbo', name: 'Turbo', chartColor: '#facc15', iconColor: 'text-yellow-400' },
   { id: 'shelly', name: 'Shelly', chartColor: '#a855f7', iconColor: 'text-purple-400' }
 ]
-const RACE_COUNT = 50
+// Cada arranque representa un día simulado de seis carreras.
+const RACE_COUNT = 6
 // Cada carrera tiene un ganador y una apuesta ficticia a uno de los seis caracoles.
 const simulation = Array.from({ length: RACE_COUNT }, (_, index) => ({
   raceNumber: index + 1,
@@ -26,3 +27,4 @@ export function dashboardData() {
   // Consultar o recargar la página no vuelve a generar carreras.
   return cachedDashboard
 }
+

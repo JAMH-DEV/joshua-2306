@@ -44,15 +44,15 @@ test('login y rutas protegidas', async () => {
   assert.equal(result.data.user.id, user.id)
   assert.equal(result.data.user.password, undefined)
 })
-test('dashboard contiene seis caracoles y 50 carreras congruentes que permanecen en caché', async () => {
+test('dashboard contiene seis caracoles y seis carreras congruentes que permanecen en caché', async () => {
   const { data } = await api('/dashboard')
   assert.equal(data.snails.length, 6)
-  assert.equal(data.races.length, 50)
-  assert.equal(data.snails.reduce((sum: number, snail: { wins: number }) => sum + snail.wins, 0), 50)
+  assert.equal(data.races.length, 6)
+  assert.equal(data.snails.reduce((sum: number, snail: { wins: number }) => sum + snail.wins, 0), 6)
   for (const snail of data.snails) assert.equal(snail.wins, data.races.filter((race: { id: string }) => race.id === snail.id).length)
-  assert.equal(data.won + data.lost, 50)
+  assert.equal(data.won + data.lost, 6)
   assert.deepEqual((await api('/dashboard')).data, data)
-  assert.deepEqual(data.races.map((race: { raceNumber: number }) => race.raceNumber), Array.from({ length: 50 }, (_, index) => index + 1))
+  assert.deepEqual(data.races.map((race: { raceNumber: number }) => race.raceNumber), Array.from({ length: 6 }, (_, index) => index + 1))
 })
 test('aprobación contiene contrato completo y reintentos no duplican el saldo', async () => {
   const first = await api('/snailpay/charges', payment(), true, 'approved')
@@ -104,4 +104,5 @@ test('sesiones expiradas y JSON inválido tienen respuestas controladas', async 
   const response = await fetch(`${base}/auth/register`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{malformed' })
   assert.equal(response.status, 400)
 })
+
 

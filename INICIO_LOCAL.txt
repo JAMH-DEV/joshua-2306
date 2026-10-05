@@ -1,0 +1,20 @@
+﻿ARRANCAR EN LOCAL
+
+Requisito: Node.js 22.12 o posterior y npm
+Abre dos terminales desde la raíz del proyecto
+
+1. BACKEND
+   cd backend
+   npm install
+   Si no existe .env: copia .env.example como .env
+   npm run dev
+   Servidor: http://localhost:3000
+
+2. FRONTEND
+   cd frontend
+   npm install
+   Si no existe .env: copia .env.example como .env.
+   npm run dev
+   Abre la URL que imprime Vite (http://localhost:5173)
+
+Registra una cuenta e inicia sesión. No necesitas base de datos
