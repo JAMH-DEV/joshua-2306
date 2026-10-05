@@ -17,7 +17,7 @@ export class ApiError extends Error {
 }
 export function clearSession() { localStorage.removeItem('token'); localStorage.removeItem('session') }
 export function saveProfile(profile: Profile) { localStorage.setItem('profile', JSON.stringify(profile)); localStorage.setItem('session', JSON.stringify(profile)) }
-// El proxy de Vite conecta /api con Express. En otro entorno se puede configurar VITE_API_URL.
+// El proxy de Vite conecta /api con Express. En otro entorno se puede configurar VITE_API_URL
 const API_URL = import.meta.env.VITE_API_URL ?? '/api'
 export async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const controller = new AbortController()

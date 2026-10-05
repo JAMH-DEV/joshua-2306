@@ -76,3 +76,9 @@ La referencia pendiente vive en el formulario: ante un problema de conexión, ut
 
 Copia .env.example como .env. Los comandos npm start y npm run dev cargan .env automáticamente mediante Node.js. Reinicia Express después de cambiarlo. PORT configura el puerto, FRONTEND_ORIGIN el origen permitido y SNAILPAY_SYSTEM_ERROR activa el error global con true. Los archivos .env están excluidos de Git y .env.example sí se puede versionar.
 
+
+## Propuesta de base de datos
+
+[database/schema.sql](database/schema.sql) contiene una propuesta PostgreSQL para usuarios, sesiones, caracoles, carreras reales, participantes con sus puestos finales, apuestas y pagos. Incluye el catálogo inicial de seis caracoles. Esta propuesta no está conectada a Express: la aplicación sigue usando memoria.
+
+El SQL está pensado para ejecutarse una sola vez en una base vacía, con PostgreSQL 13 o posterior. No se ha ejecutado contra una instancia PostgreSQL en este workspace. Las validaciones entre registros (cierre de carreras, puestos completos, apuestas antes del inicio) y las actualizaciones transaccionales del saldo requieren implementación en el backend. El diseño de puestos supone que no existen empates.
